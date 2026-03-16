@@ -1,6 +1,7 @@
 import BetAmountControls from '@/components/layouts/gameLayout/components/BetAmountControls.tsx';
 import JumpControls from '@/components/layouts/gameLayout/components/JumpControls.tsx';
 import GamePlayControls from '@/components/layouts/gameLayout/components/GamePlayControls.tsx';
+import RiskLevelControl from '@/components/layouts/gameLayout/components/RiskLevelControl.tsx';
 
 interface Props {
   children: React.ReactNode;
@@ -13,8 +14,9 @@ function GameLayout({ children }: Props) {
       <div className='z-10 grid h-[104px] grid-cols-3 gap-3 my-container'>
         <BetAmountControls />
         <JumpControls />
-        <div>
+        <div className={'w-full flex gap-3'}>
           <GamePlayControls />
+          <RiskLevelControl></RiskLevelControl>
         </div>
       </div>
 
