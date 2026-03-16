@@ -1,11 +1,11 @@
 import Phaser from 'phaser';
 import { DESIGN_HEIGHT, BARRELS_START_X, BARREL_WIDTH } from '@utils/constants.ts';
 import type { SpineGameObject } from '@esotericsoftware/spine-phaser';
+import type { MainSceneObjectsType } from '@scenes/mainScene/MainScene.ts';
 
 export default function createPlayer(
   scene: Phaser.Scene,
-  blocks: Phaser.Physics.Arcade.StaticGroup,
-  barrels: Phaser.Physics.Arcade.StaticGroup
+  objects: MainSceneObjectsType
 ): SpineGameObject {
   const player = scene.add.spine(
     BARRELS_START_X + BARREL_WIDTH / 2 - BARREL_WIDTH + 5,
@@ -21,8 +21,8 @@ export default function createPlayer(
   body.setSize(140, 200);
   body.setCollideWorldBounds(true);
 
-  scene.physics.add.collider(player, blocks);
-  scene.physics.add.collider(player, barrels);
+  scene.physics.add.collider(player, objects.blocks);
+  scene.physics.add.collider(player, objects.barrels);
   player.animationState.setAnimation(0, 'dgoma', true);
   player.scale = 0.3;
 

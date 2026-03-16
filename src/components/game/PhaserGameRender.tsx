@@ -19,6 +19,7 @@ function PhaserGameRender({ gameFactory }: Props) {
     const spineTextures = [
       '/assets/spine/rooster/Chicken_animation.webp',
       '/assets/spine/barrelJiggle/Bochka.webp',
+      '/assets/spine/barrelDefeat/Tsageba.webp',
     ];
 
     const preloads = spineTextures.map(
