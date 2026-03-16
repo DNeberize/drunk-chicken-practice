@@ -31,6 +31,7 @@ function createGame({ parent }: Props): Phaser.Game {
       antialias: true,
       pixelArt: false,
       roundPixels: false,
+      premultipliedAlpha: true,
     },
     scale: {
       mode: Phaser.Scale.NONE,
@@ -38,6 +39,11 @@ function createGame({ parent }: Props): Phaser.Game {
     physics: {
       default: 'matter',
     },
+    fps: {
+      target: 30,
+      forceSetTimeOut: false,
+    },
+
     scene: [BootScene, MainScene],
     plugins: {
       scene: [
