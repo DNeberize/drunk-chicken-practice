@@ -57,8 +57,9 @@ export class BootScene extends Phaser.Scene {
     this.load.image('worldBackground', '/images/worldBackground.webp');
     this.load.image('jumpingBoard', '/images/jumpingBoard.webp');
     this.load.image('chicken', '/images/chicken.webp');
-    this.load.image('rooster', '/images/rooster.webp');
     this.load.image('barrel', '/images/barrel.webp');
+    this.load.spineBinary('rooster-data', '/assets/spine/rooster/Chicken_animation.skel');
+    this.load.spineAtlas('rooster-atlas', '/assets/spine/rooster/Chicken_animation.atlas');
   }
 
   create() {

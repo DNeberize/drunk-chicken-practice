@@ -402,6 +402,34 @@
     "@eslint/core" "^0.17.0"
     levn "^0.4.1"
 
+"@esotericsoftware/spine-canvas@4.2.76":
+  version "4.2.76"
+  resolved "https://registry.yarnpkg.com/@esotericsoftware/spine-canvas/-/spine-canvas-4.2.76.tgz#47c96a1cbdea671651abece7470614e516690ca7"
+  integrity sha512-h1oRiMdSngWDLBXbBt+ZBwxQT7LzRLCfTHTuQc1EMSXdbQYYJBR8AxzZEVkknRNMxal9MEE/abDgpNb64YImgw==
+  dependencies:
+    "@esotericsoftware/spine-core" "4.2.76"
+
+"@esotericsoftware/spine-core@4.2.76":
+  version "4.2.76"
+  resolved "https://registry.yarnpkg.com/@esotericsoftware/spine-core/-/spine-core-4.2.76.tgz#be25e9699fa4e255de72081bf518a19a8f4b8311"
+  integrity sha512-U5h++pz6YyqXc/ci5ZNvn8rWTFgezRppDtLoCMqQXkGF1K1Pu8a4czpVG3QgJr71rk0lR1J7E5hL5cteCyc8Bw==
+
+"@esotericsoftware/spine-phaser@^4.2.76":
+  version "4.2.76"
+  resolved "https://registry.yarnpkg.com/@esotericsoftware/spine-phaser/-/spine-phaser-4.2.76.tgz#4810d9819245f54642537f3b6aceb6fc1743d334"
+  integrity sha512-I4ip5vy57yp3OjE+pWPtJiJD5cCF4LHhASTKo/My63WvEQHAYrOy6icuVYasWIKPJgY1lMSZR7r0AZ9SOehiCQ==
+  dependencies:
+    "@esotericsoftware/spine-canvas" "4.2.76"
+    "@esotericsoftware/spine-core" "4.2.76"
+    "@esotericsoftware/spine-webgl" "4.2.76"
+
+"@esotericsoftware/spine-webgl@4.2.76":
+  version "4.2.76"
+  resolved "https://registry.yarnpkg.com/@esotericsoftware/spine-webgl/-/spine-webgl-4.2.76.tgz#05101735801573e154958ffcbd745bb89acc24af"
+  integrity sha512-R7w1J/DlD/naS8YhLVcy0Tba5d4rzYk0Bx+pESMZgbSPOxdRypAM2uuU2MVuW9lUJ+wTkOAXDtihRicnstg4iQ==
+  dependencies:
+    "@esotericsoftware/spine-core" "4.2.76"
+
 "@humanfs/core@^0.19.1":
   version "0.19.1"
   resolved "https://registry.yarnpkg.com/@humanfs/core/-/core-0.19.1.tgz#17c55ca7d426733fe3c561906b8173c336b40a77"

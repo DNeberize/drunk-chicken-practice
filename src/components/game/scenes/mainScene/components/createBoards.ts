@@ -21,7 +21,7 @@ export default function createBoards(
 
   const blocks = scene.physics.add.staticGroup();
 
-  const startPlatform = scene.add.rectangle(BOARD_W / 2, midY, BOARD_W, 4, 0x000000, 0);
+  const startPlatform = scene.add.rectangle(BOARD_W / 2, midY, BOARD_W, 100, 0x000000, 0);
   scene.physics.add.existing(startPlatform, true);
   blocks.add(startPlatform);
 

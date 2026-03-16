@@ -1,23 +1,23 @@
-import { Game, type Types } from "phaser";
-import { BootScene } from "./scenes/bootScene/BootScene.ts";
-import { MainScene } from "./scenes/mainScene/MainScene.ts";
-import { DESIGN_WIDTH, DESIGN_HEIGHT } from "../../utils/constants.ts";
-
+import { Game, type Types } from 'phaser';
+import { BootScene } from './scenes/bootScene/BootScene.ts';
+import { MainScene } from './scenes/mainScene/MainScene.ts';
+import { DESIGN_WIDTH, DESIGN_HEIGHT } from '@utils/constants.ts';
 interface Props {
   parent: string;
 }
+import * as spine from '@esotericsoftware/spine-phaser';
 
 function createGame({ parent }: Props): Phaser.Game {
   const parentEl = document.getElementById(parent);
   const containerW = parentEl?.clientWidth || window.innerWidth;
   const containerH = parentEl?.clientHeight || window.innerHeight;
 
-  const canvas = document.createElement("canvas");
+  const canvas = document.createElement('canvas');
   canvas.width = containerW;
   canvas.height = containerH;
-  canvas.style.width = "100%";
-  canvas.style.height = "100%";
-  canvas.style.display = "block";
+  canvas.style.width = '100%';
+  canvas.style.height = '100%';
+  canvas.style.display = 'block';
 
   if (parentEl) parentEl.appendChild(canvas);
 
@@ -36,9 +36,18 @@ function createGame({ parent }: Props): Phaser.Game {
       mode: Phaser.Scale.NONE,
     },
     physics: {
-      default: "matter",
+      default: 'matter',
     },
     scene: [BootScene, MainScene],
+    plugins: {
+      scene: [
+        {
+          key: 'spine.SpinePlugin',
+          plugin: spine.SpinePlugin,
+          mapping: 'spine',
+        },
+      ],
+    },
   };
 
   const game = new Game(config);
@@ -51,8 +60,8 @@ function createGame({ parent }: Props): Phaser.Game {
     game.scale.resize(newW, newH);
   };
 
-  window.addEventListener("resize", handleResize);
-  game.events.once("destroy", () => window.removeEventListener("resize", handleResize));
+  window.addEventListener('resize', handleResize);
+  game.events.once('destroy', () => window.removeEventListener('resize', handleResize));
 
   return game;
 }
