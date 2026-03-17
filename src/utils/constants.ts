@@ -13,3 +13,29 @@ export const JIGGLE_BARREL_X_OFFSET = 35;
 export const JIGGLE_BARREL_Y_OFFSET = 75;
 export const JIGGLE_BARREL_SCALE = 0.265;
 export const JIGGLE_BARREL_ANIMATION_MS = 300;
+
+export const betAmountOptions: Array<{
+  label: string;
+  value: number;
+}> = [
+  {
+    label: 'Min',
+    value: 0.1,
+  },
+  {
+    label: '5.00',
+    value: 5,
+  },
+  {
+    label: '10.00',
+    value: 10,
+  },
+  {
+    label: '50.00',
+    value: 50,
+  },
+  {
+    label: 'Max',
+    value: 100,
+  },
+];

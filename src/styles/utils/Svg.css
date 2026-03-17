@@ -1,0 +1,61 @@
+svg {
+    transition: 300ms ease-out;
+
+    path,
+    rect {
+        transition: 300ms ease-out;
+    }
+}
+
+@layer components {
+
+    .icon-dark-yellow {
+        path[data-name="fill"] {
+            fill: #D4AB18;
+        }
+
+        path[data-name="stroke"] {
+            stroke: #D4AB18;
+        }
+    }
+
+    .icon-white {
+        path[data-name="fill"] {
+            fill: #fff;
+        }
+
+        path[data-name="stroke"] {
+            stroke: #fff;
+        }
+    }
+
+    .icon-light-gray {
+        path[data-name="fill"] {
+            fill: #55595F;
+        }
+
+        path[data-name="stroke"] {
+            stroke: #55595F;
+        }
+    }
+
+    .icon-black {
+        path[data-name="fill"] {
+            fill: #000;
+        }
+
+        path[data-name="stroke"] {
+            stroke: #000;
+        }
+    }
+
+    .icon-light-green {
+        path[data-name="fill"] {
+            fill: #3bca40;
+        }
+
+        path[data-name="stroke"] {
+            stroke: #3bca40;
+        }
+    }
+}
