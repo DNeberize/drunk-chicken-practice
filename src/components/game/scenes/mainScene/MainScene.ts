@@ -7,6 +7,9 @@ import createPlayer from '@scenes/mainScene/components/createPlayer.ts';
 import createChicken from '@scenes/mainScene/components/createChicken.ts';
 import setupInput from '@scenes/mainScene/components/setupInput.ts';
 import createBarrels from '@scenes/mainScene/components/createBarrels.ts';
+import createJiggleBarrels, {
+  playJiggleBarrelAnimation,
+} from '@scenes/mainScene/components/createJiggleBarrel.ts';
 import { SpineGameObject } from '@esotericsoftware/spine-phaser';
 
 export type MainSceneObjectsType = {
@@ -14,6 +17,7 @@ export type MainSceneObjectsType = {
   chicken: Phaser.GameObjects.Image;
   blocks: Phaser.Physics.Arcade.StaticGroup;
   barrels: Phaser.Physics.Arcade.StaticGroup;
+  jiggleBarrels: SpineGameObject[];
   cursors: Phaser.Types.Input.Keyboard.CursorKeys;
   worldWidth: number;
   snapped: boolean;
@@ -40,6 +44,7 @@ export class MainScene extends Phaser.Scene {
     setupWorldAndCamera(this, this.objects);
     createBackground(this, this.objects);
     this.objects.barrels = createBarrels(this);
+    this.objects.jiggleBarrels = createJiggleBarrels(this);
     this.objects.blocks = createBoards(this, this.objects);
     this.objects.player = createPlayer(this, this.objects);
     this.objects.chicken = createChicken(this, this.objects);
@@ -49,6 +54,19 @@ export class MainScene extends Phaser.Scene {
 
   update(): void {
     const body = this.objects.player.body as Phaser.Physics.Arcade.Body;
+
+    const isLandingOnBarrel = body.touching.down && !body.wasTouching.down && body.velocity.y >= 0;
+    if (isLandingOnBarrel) {
+      const rawIndex = Math.round(
+        (this.objects.player.x - (BARRELS_START_X + BARREL_WIDTH / 2)) / BARREL_WIDTH
+      );
+      const barrelIndex = Phaser.Math.Clamp(rawIndex, 0, BARRELS_AMOUNT - 1);
+      const barrel = this.objects.barrels.getChildren()[barrelIndex] as Phaser.GameObjects.Image;
+
+      if (barrel) {
+        playJiggleBarrelAnimation(this, barrelIndex, barrel, this.objects.jiggleBarrels);
+      }
+    }
 
     if (this.objects.cursors.up?.isDown && body.touching.down) {
       body.setVelocityY(-300);

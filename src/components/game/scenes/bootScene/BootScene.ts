@@ -56,10 +56,14 @@ export class BootScene extends Phaser.Scene {
 
     this.load.image('worldBackground', '/images/worldBackground.webp');
     this.load.image('jumpingBoard', '/images/jumpingBoard.webp');
+
     this.load.image('chicken', '/images/chicken.webp');
-    this.load.image('barrel', '/images/barrel.webp');
     this.load.spineBinary('rooster-data', '/assets/spine/rooster/Chicken_animation.skel');
     this.load.spineAtlas('rooster-atlas', '/assets/spine/rooster/Chicken_animation.atlas');
+
+    this.load.image('barrel', '/images/barrel.webp');
+    this.load.spineBinary('bochka-data', '/assets/spine/barrelJiggle/Bochka.skel');
+    this.load.spineAtlas('bochka-atlas', '/assets/spine/barrelJiggle/Bochka.atlas');
   }
 
   create() {

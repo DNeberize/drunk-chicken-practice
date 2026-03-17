@@ -1,5 +1,5 @@
 import Phaser from 'phaser';
-import { DESIGN_HEIGHT, BARRELS_START_X, BARREL_WIDTH } from '@utils/constants.ts';
+import { BARREL_WIDTH, BARRELS_START_X, DESIGN_HEIGHT } from '@utils/constants.ts';
 import type { SpineGameObject } from '@esotericsoftware/spine-phaser';
 import type { MainSceneObjectsType } from '@scenes/mainScene/MainScene.ts';
 
@@ -15,7 +15,6 @@ export default function createPlayer(
   );
 
   player.setOrigin(0.5, 0.5);
-
   scene.physics.add.existing(player);
   const body = player.body as Phaser.Physics.Arcade.Body;
   body.setSize(140, 200);
